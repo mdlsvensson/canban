@@ -1,10 +1,12 @@
 <script lang="ts">
-	import PorjectIcon from './PorjectIcon.svelte';
+	import ProjectButton from './PorjectButton.svelte';
+	import AddProjectButton from './AddProjectButton.svelte';
 </script>
 
 <div class="pt-4 h-full w-full flex flex-col gap-4 items-center">
-	<PorjectIcon />
-	<PorjectIcon />
-	<PorjectIcon />
-	<PorjectIcon />
+	<ProjectButton />
+	<ProjectButton />
+	<ProjectButton />
+	<ProjectButton />
+	<AddProjectButton />
 </div>

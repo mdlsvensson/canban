@@ -1,22 +1,16 @@
 <script lang="ts">
 	export let isOpen = false;
 
-	const keyPress = (event) => {
-		if (event.key == 'Escape') close();
+	const onKeyDown = (event: KeyboardEvent) => {
+		if (event.key == 'Escape' && isOpen) {
+			isOpen = !isOpen;
+		}
 	};
 
 	export const openModal = () => {
 		console.log('test');
 		if (isOpen) return;
 		isOpen = !isOpen;
-	};
-
-	const closeModal = () => {
-		return;
-	};
-
-	const handleKeyDown = (event: KeyboardEvent) => {
-		if (event.key === 'Escape') isOpen = false;
 	};
 </script>
 
@@ -27,3 +21,5 @@
 >
 	<slot />
 </div>
+
+<svelte:window on:keydown={onKeyDown} />

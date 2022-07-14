@@ -2,6 +2,7 @@
 	import { supabase } from '$lib/supabaseClient';
 	import { user } from '$lib/stores';
 	import Card from '$lib/common/Card.svelte';
+	import Login from '$lib/auth/Login.svelte';
 
 	let loading = true;
 	let username = null;
@@ -33,7 +34,7 @@
 		}
 	};
 
-	async function updateProfile() {
+	const updateProfile = async () => {
 		try {
 			loading = true;
 			const user = supabase.auth.user();
@@ -56,50 +57,55 @@
 		} finally {
 			loading = false;
 		}
-	}
+	};
 </script>
 
-<form use:getProfile on:submit|preventDefault={updateProfile} class="p-4">
-	<Card>
-		<div class="flex flex-col max-w-[20rem] gap-8">
-			<div class="flex flex-col gap-4">
-				<div class="flex flex-col">
-					<label for="email" class="pl-1">Email</label>
-					<input
-						type="text"
-						value={$user.email}
-						disabled
-						class="appearance-none rounded-md px-3 py-2 border border-gray-400 placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm shadow"
-					/>
+{#if $user}
+	<form use:getProfile on:submit|preventDefault={updateProfile} class="p-4">
+		<Card>
+			<div class="flex flex-col max-w-[20rem] gap-8">
+				<div class="flex flex-col gap-4">
+					<div class="flex flex-col">
+						<label for="email" class="pl-1">Email</label>
+						<input
+							type="text"
+							value={$user.email}
+							disabled
+							class="p-2 pl-4 w-full sm:text-sm text-fg4 bg-bg2 rounded-lg border border-bg3 focus:outline-none focus:border-fg4 shadow aling-middle pt-3"
+						/>
+					</div>
+
+					<div class="flex flex-col">
+						<label for="username" class="pl-1">Username</label>
+						<input
+							id="username"
+							type="text"
+							bind:value={username}
+							class="p-2 pl-4 w-full sm:text-sm text-fg1 bg-bg2 rounded-lg border border-bg3 focus:outline-none focus:border-fg4 shadow aling-middle pt-3"
+						/>
+					</div>
+
+					<div class="flex flex-col">
+						<label for="website" class="pl-1">Website</label>
+						<input
+							id="website"
+							type="website"
+							bind:value={website}
+							class="p-2 pl-4 w-full sm:text-sm text-fg1 bg-bg2 rounded-lg border border-bg3 focus:outline-none focus:border-fg4 shadow aling-middle pt-3"
+						/>
+					</div>
 				</div>
 
-				<div class="flex flex-col">
-					<label for="username" class="pl-1">Username</label>
-					<input
-						id="username"
-						type="text"
-						bind:value={username}
-						class="appearance-none rounded-md px-3 py-2 border border-gray-400  placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm shadow"
-					/>
-				</div>
-
-				<div class="flex flex-col">
-					<label for="website" class="pl-1">Website</label>
-					<input
-						id="website"
-						type="website"
-						bind:value={website}
-						class="appearance-none rounded-md px-3 py-2 border border-gray-400  placeholder-gray-500 text-gray-900  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm shadow"
-					/>
-				</div>
+				<button
+					type="submit"
+					disabled={loading}
+					class:hover:bg-bg1={!loading}
+					class="py-3 rounded-md flex gap-2 items-center border border-fg4 leading-[1.25rem] pt-4 justify-center w-1/2 self-center shadow-lg"
+					>{loading ? 'Loading ...' : 'Update'}</button
+				>
 			</div>
-
-			<input
-				type="submit"
-				value={loading ? 'Loading ...' : 'Update'}
-				disabled={loading}
-				class="relative bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded w-[6rem] self-center"
-			/>
-		</div>
-	</Card>
-</form>
+		</Card>
+	</form>
+{:else}
+	<Login />
+{/if}

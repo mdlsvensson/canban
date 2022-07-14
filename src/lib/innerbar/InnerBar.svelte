@@ -3,13 +3,13 @@
 </script>
 
 <div
-	class="grow h-16 flex justify-center items-center justify-between border-r border-b border-black border-solid p-6"
+	class="grow h-16 flex items-center justify-between border-r border-b border-bg2 border-solid p-6"
 >
-	<div class="flex gap-2">
-		<strong><h1>Project Name</h1></strong>
-		<h3>Board</h3>
+	<div class="flex gap-4 items-baseline">
+		<strong><h1 class="text-xl">Project Name</h1></strong>
+		<h3 class="text-lg">Board</h3>
 	</div>
-	<div class="flex gap-2">
+	<div class="flex gap-2 ">
 		<Search />
 	</div>
 </div>

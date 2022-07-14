@@ -3,7 +3,7 @@
 	import Logo from './Logo.svelte';
 </script>
 
-<div class="w-16 bg-slate-500">
+<div class="w-16 bg-bg2">
 	<Logo />
 	<ProjectBarInner />
 </div>

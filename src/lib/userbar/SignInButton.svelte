@@ -7,7 +7,8 @@
 
 <button
 	type="button"
-	class="relative bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+	class="px-4 py-3 hover:bg-bg1 rounded-md flex gap-2 items-center"
+	class:active-nav={isOpen}
 	on:click={() => {
 		isOpen = !isOpen;
 	}}

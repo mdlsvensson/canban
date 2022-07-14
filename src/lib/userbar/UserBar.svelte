@@ -17,7 +17,7 @@
 	};
 </script>
 
-<div class="flex h-16 w-[8rem] justify-center items-center border-b border-black border-solid">
+<div class="flex h-16 w-[8rem] justify-center items-center border-b border-bg2 border-solid">
 	{#if $user}
 		<!-- User Image Button -->
 		<button
@@ -34,5 +34,6 @@
 	{:else}
 		<SignInButton />
 	{/if}
-	<UserDropdown />
 </div>
+
+<UserDropdown {isDropdownOpen} />

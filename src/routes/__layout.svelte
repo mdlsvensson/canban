@@ -4,7 +4,14 @@
 	import InnerBar from '$lib/innerbar/InnerBar.svelte';
 	import UserBar from '$lib/userbar/UserBar.svelte';
 
-	let displayedProjects: object;
+	import { user } from '$lib/stores';
+	import { supabase } from '$lib/supabaseClient';
+
+	user.set(supabase.auth.user());
+
+	supabase.auth.onAuthStateChange((_, session) => {
+		user.set(session.user);
+	});
 </script>
 
 <div class="w-full h-screen flex">

@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
+/* Gruvbox Light */
 html {
   --bg_h: #f9f5d7;
   --bg:   #fbf1c7;
@@ -34,10 +35,42 @@ html {
   --aqua-dim:   #689d6a;
   --orange-dim: #d65d0e;
   --gray-dim:   #7c6f64;
-
-  @apply bg-gruvbox-bg text-gruvbox-fg2;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @apply text-fg;
+}
+
+h1, h2 {
+  @apply font-bree;
+}
+
+h3, h3, h5, h6 {
+  @apply font-martel;
+}
+
+p, a, button {
+  @apply text-fg1;
+}
+
+svg {
+  @apply fill-fg2
+}
+
+.active-nav {
+  @apply bg-bg1;
+  @apply shadow-inner;
+}
+
+* {
+  @apply focus:outline-none
+}
+
+*::selection {
+  @apply bg-bg_s
+}
+
+/* Gruvbox Dark */
 html.dark {
   --bg_h: #1d2021;
   --bg:   #282828;

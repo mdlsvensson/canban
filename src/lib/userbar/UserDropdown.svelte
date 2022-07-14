@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { supabase } from '$lib/supabaseClient';
+	import { get } from 'svelte/store';
 	import { user } from '$lib/stores';
 
+	export let isDropdownOpen = false;
 	let loading = false;
 
-	async function signOut() {
+	const signOut = async () => {
 		try {
 			loading = true;
 			let { error } = await supabase.auth.signOut();
@@ -14,10 +16,13 @@
 		} finally {
 			loading = false;
 		}
-	}
+	};
 </script>
 
-<div class="z-50 rounded shadow bg-gray-700 hidden">
+<div
+	class:hidden={!isDropdownOpen}
+	class="absolute right-[.5rem] top-[4.5rem] z-50 rounded shadow-md bg-bg"
+>
 	<div class="px-4 py-3">
 		<span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
 		<span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"

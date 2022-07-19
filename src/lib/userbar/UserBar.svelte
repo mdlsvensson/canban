@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { user } from '$lib/stores.js';
+	import { user } from '$lib/stores';
 	import SignInButton from './SignInButton.svelte';
 	import UserDropdown from './UserDropdown.svelte';
 
@@ -7,7 +7,6 @@
 
 	const handleDropdownClick = () => {
 		isDropdownOpen = !isDropdownOpen;
-		console.log(isDropdownOpen);
 	};
 
 	const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {

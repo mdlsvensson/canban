@@ -16,6 +16,7 @@
 	};
 
 	const handleClickOutside = () => {
+		console.log('test');
 		if (isOpen) {
 			isOpen = !isOpen;
 		}
@@ -23,7 +24,7 @@
 </script>
 
 <div
-	class="z-50 absolute w-[20rem] bg-gray-300 top-[5rem] right-[1rem] rounded-lg content-none after:absolute after:top-0 after:right-6 after:w-14 after:h-14 after:rotate-45 after:bg-gray-300 animate-fade after:z-[-1]"
+	class="z-50 absolute w-[20rem] bg-bg top-[5rem] right-[1rem] rounded-lg content-none shadow after:absolute after:top-0 after:right-6 after:w-14 after:h-14 after:rotate-45 after:bg-bg animate-fade after:z-[-1]"
 	class:invisible={!isOpen}
 	on:click|stopPropagation={() => {}}
 	use:clickOutside

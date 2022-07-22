@@ -10,13 +10,11 @@
 	};
 
 	export const openModal = () => {
-		console.log('test');
 		if (isOpen) return;
 		isOpen = !isOpen;
 	};
 
 	const handleClickOutside = () => {
-		console.log('test');
 		if (isOpen) {
 			isOpen = !isOpen;
 		}

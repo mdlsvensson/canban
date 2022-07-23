@@ -45,8 +45,13 @@ h1 {
   @apply font-bree;
 }
 
-h2, h3, h3, h5, h6 {
+h2, h3{
   @apply font-martel;
+}
+
+.board-select-item {
+  @apply font-martel;
+  font-size: 16px;
 }
 
 p, a, button {

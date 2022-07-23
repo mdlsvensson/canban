@@ -104,3 +104,12 @@ html.dark {
   --gray-dim:   #a89984;
   --orange-dim: #d65d0e;
 }
+
+
+
+
+/* CUSTOM CLASSES */
+
+.shadow-b {
+  box-shadow: 0 2px 6px -4px gray;
+}
